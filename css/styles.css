@@ -1,9 +1,154 @@
 /* Estilos personalizados Elite Inmobiliaria */
 body {
     font-family: 'Rubik', Arial, sans-serif;
-    background: #fafbfc;
-    color: #222;
+    background: var(--color-bg);
+    color: var(--color-text);
 }
+
+:root {
+    --color-accent: #f05d24;
+    --color-bg: #f7f7ff;
+    --color-card: #f7f7ff;
+    --color-border: #1f252b;
+    --color-shadow: 0 2px 16px 0 rgba(31,37,43,0.06);
+    --color-title: #0a203a;
+    --color-text: #0a203a;
+    --color-black: #1f252b;
+    --color-white: #f7f7ff;
+    --color-muted: #1f252b;
+}
+
+body {
+    background: var(--color-bg);
+    color: var(--color-text);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--color-title);
+    font-weight: 700;
+}
+
+.card, .testimonio-card {
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    box-shadow: none;
+}
+
+.navbar, .navbar .navbar-brand, .navbar .nav-link, .navbar .dropdown-menu, footer {
+    background: var(--color-white);
+    color: var(--color-text);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.navbar .nav-link.active, .navbar .nav-link:focus {
+    color: var(--color-accent);
+}
+
+.btn-primary, .btn-primary:active, .btn-primary:focus {
+    background: var(--color-accent);
+    border: none;
+    color: var(--color-white);
+    box-shadow: none;
+}
+.btn-primary:hover {
+    background: #d94e1e;
+    color: var(--color-white);
+}
+
+.btn-outline-primary {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+    background: transparent;
+}
+.btn-outline-primary:hover, .btn-outline-primary:focus {
+    background: var(--color-accent);
+    color: var(--color-white);
+    border-color: var(--color-accent);
+}
+
+a, .navbar .dropdown-item {
+    color: var(--color-accent);
+}
+
+.navbar .dropdown-menu {
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    box-shadow: none;
+}
+
+#testimonios .fw-bold {
+    color: var(--color-title);
+}
+#testimonios .card-text {
+    color: var(--color-text);
+}
+#testimonios small {
+    color: var(--color-muted);
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--color-title);
+}
+
+.card, .testimonio-card {
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+}
+
+.navbar, .navbar .navbar-brand, .navbar .nav-link, .navbar .dropdown-menu, footer {
+    background: var(--color-white);
+    color: var(--color-text);
+}
+
+.navbar .nav-link.active, .navbar .nav-link:focus {
+    color: var(--color-accent);
+}
+
+.btn-primary, .btn-primary:active, .btn-primary:focus {
+    background: var(--color-accent);
+    border: none;
+    color: var(--color-white);
+    box-shadow: 0 2px 8px rgba(240,93,36,0.08);
+}
+.btn-primary:hover {
+    background: #d94e1e;
+    color: var(--color-white);
+}
+
+.btn-outline-primary {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+    background: transparent;
+}
+.btn-outline-primary:hover, .btn-outline-primary:focus {
+    background: var(--color-accent);
+    color: var(--color-white);
+    border-color: var(--color-accent);
+}
+
+a, .navbar .dropdown-item {
+    color: var(--color-accent);
+}
+
+.navbar .dropdown-menu {
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    box-shadow: 0 4px 24px rgba(31,37,43,0.09);
+}
+
+#testimonios .fw-bold {
+    color: var(--color-accent);
+}
+#testimonios .card-text {
+    color: var(--color-text);
+}
+#testimonios small {
+    color: var(--color-muted);
+}
+
 
 /* Carrusel Hero Custom */
 .custom-carousel-hero {
@@ -42,7 +187,7 @@ body {
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    color: #fff;
+    color: #f7f7ff;
     text-align: center;
     background: rgba(24,24,24,0.45);
     border-radius: 1rem;
@@ -50,6 +195,14 @@ body {
     box-shadow: 0 8px 32px rgba(0,0,0,0.15);
     min-width: 320px;
     max-width: 90vw;
+}
+.custom-carousel-hero .carousel-caption-custom h1,
+.custom-carousel-hero .carousel-caption-custom h2,
+.custom-carousel-hero .carousel-caption-custom h3,
+.custom-carousel-hero .carousel-caption-custom p,
+.custom-carousel-hero .carousel-caption-custom a,
+.custom-carousel-hero .carousel-caption-custom .btn {
+    color: #f7f7ff;
 }
 .custom-carousel-hero .btn {
     font-size: 1.2rem;
@@ -123,8 +276,8 @@ body {
 
 /* Dropdown menú alineado al borde inferior del header */
 .navbar .dropdown-menu {
-    top: 100% !important;
-    margin-top: 0 !important;
+    top: 100%;
+    margin-top: 0;
     border-radius: 0.7rem;
     box-shadow: 0 4px 24px rgba(30,40,90,0.09);
     border: 1px solid #e6e8eb;
@@ -142,21 +295,21 @@ body {
 
 .navbar .dropdown-item:hover, .navbar .dropdown-item:focus {
     background: #f2f4f8;
-    color: #0d6efd;
+    color: #f05d24;
 }
 
 
 .nav-link {
     font-weight: 500;
-    color: #232323 !important;
+    color: #232323;
     transition: color 0.2s;
 }
 .nav-link:hover, .nav-link.active {
-    color: #0d6efd !important;
+    color: #f05d24;
 }
 
 .btn-primary {
-    background: linear-gradient(90deg, #0d6efd 60%, #6c63ff 100%);
+    background: #f05d24;
     border: none;
     font-weight: 600;
     letter-spacing: 0.5px;
@@ -164,7 +317,7 @@ body {
     transition: background 0.3s;
 }
 .btn-primary:hover {
-    background: linear-gradient(90deg, #6c63ff 60%, #0d6efd 100%);
+    background: #d94e1e;
 }
 
 .hero {
@@ -183,7 +336,7 @@ body {
 
 h1, h2, h3, h4, h5 {
     font-family: 'Rubik', Arial, Helvetica, sans-serif;
-    font-weight: 700 !important;
+    font-weight: 700;
     letter-spacing: 0.5px;
     margin-bottom: 1.5rem;
 }
@@ -230,8 +383,8 @@ h1, h2, h3, h4, h5 {
     padding: 0;
 }
 #testimonios .d-flex.align-items-center.mt-3 {
-    margin-top: 1.5rem !important;
-    align-items: center !important;
+    margin-top: 1.5rem;
+    align-items: center;
     gap: 0.8rem;
 }
 #testimonios img.rounded-circle {
@@ -245,7 +398,7 @@ h1, h2, h3, h4, h5 {
     display: block;
 }
 #testimonios .fw-bold {
-    font-weight: 600 !important;
+    font-weight: 600;
     color: #1a3e7a;
     font-size: 1.08rem;
     margin-bottom: 0.1rem;
@@ -269,7 +422,7 @@ footer {
 }
 
 footer a {
-    color: #0d6efd;
+    color: #f05d24;
     margin: 0 0.3rem;
     transition: color 0.2s;
 }
@@ -286,7 +439,7 @@ footer a:hover {
 
 .accordion-button:not(.collapsed) {
     color: #fff;
-    background: #0d6efd;
+    background: #f05d24;
 }
 
 ol, ul {
