@@ -497,5 +497,19 @@
     <script src="js/main.js"></script>
     <script src="js/gsap-smooth-scroll.js"></script>
   </div>
+  <script>
+      window.sagicc_omni_widget_config = {
+          back_url: "https://sagiccdemo.sagicc.co",
+          widget_token: "c01664e9-1726-4d08-8fbe-6213cefb6826"
+      };
+
+      var sagicc_omni_widget_isSecured = (window.location && window.location.protocol == "https:");
+      var sagicc_omni_widget_runtime_js = document.createElement("script");
+      sagicc_omni_widget_runtime_js.setAttribute("src", "https://static.sagicc.co/chat/v2/static/js/runtime~sagicc-chat-v2.js");
+      document.body.appendChild(sagicc_omni_widget_runtime_js);
+      var sagicc_omni_widget_js = document.createElement("script");
+      sagicc_omni_widget_js.setAttribute("src", "https://static.sagicc.co/chat/v2/static/js/sagicc-chat-v2.js");
+      document.body.appendChild(sagicc_omni_widget_js);
+  </script>
 </body>
 </html>
