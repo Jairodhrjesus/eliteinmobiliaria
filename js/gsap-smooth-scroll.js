@@ -13,13 +13,13 @@
         if (typeof gsap === 'undefined') {
             loadScript('https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js', function() {
                 if (typeof ScrollSmoother === 'undefined') {
-                    loadScript('https://assets.codepen.io/16327/ScrollSmoother.min.js', callback);
+                    loadScript('https://cdn.jsdelivr.net/npm/gsap@3.12.5/ScrollSmoother.min.js', callback);
                 } else {
                     callback();
                 }
             });
         } else if (typeof ScrollSmoother === 'undefined') {
-            loadScript('https://assets.codepen.io/16327/ScrollSmoother.min.js', callback);
+            loadScript('https://cdn.jsdelivr.net/npm/gsap@3.12.5/ScrollSmoother.min.js', callback);
         } else {
             callback();
         }
