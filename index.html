@@ -62,7 +62,7 @@
     <section class="hero p-0">
         <div class="custom-carousel-hero" id="customHeroCarousel">
             <div class="carousel-slide active">
-                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80" alt="Hogar moderno" class="carousel-img">
+                <img src="images/House_Interior_01.jpg" alt="Hogar moderno" class="carousel-img">
                 <div class="carousel-caption-custom">
                     <h1 class="display-3 fw-bold mb-3">Encuentra tu hogar ideal</h1>
                     <p class="lead mb-4">Elite Inmobiliaria: Propiedades exclusivas, asesoría personalizada y el mejor servicio en bienes raíces.</p>
@@ -451,21 +451,71 @@
             <h2 class="text-center mb-4">Contáctanos</h2>
             <div class="row justify-content-center">
                 <div class="col-md-6">
-                    <form>
-                        <div class="mb-3">
-                            <label for="nombre" class="form-label">Nombre</label>
-                            <input type="text" class="form-control" id="nombre" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Correo electrónico</label>
-                            <input type="email" class="form-control" id="email" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="mensaje" class="form-label">Mensaje</label>
-                            <textarea class="form-control" id="mensaje" rows="3" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Enviar</button>
-                    </form>
+                    <form id="sagicc-contact-form" enctype="multipart/form-data" style="background: #fff; border-radius: 1rem; padding: 2rem; box-shadow: 0 2px 16px rgba(0,0,0,0.05);">
+  <div class="mb-3 row">
+    <div class="col-md-6">
+      <label for="sagicc_nombre" class="form-label">Nombre</label>
+      <input type="text" class="form-control" id="sagicc_nombre" name="name" required>
+    </div>
+    <div class="col-md-6">
+      <label for="sagicc_apellido" class="form-label">Apellido</label>
+      <input type="text" class="form-control" id="sagicc_apellido" name="lastname" required>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="sagicc_email" class="form-label">Correo electrónico</label>
+    <input type="email" class="form-control" id="sagicc_email" name="email" required>
+  </div>
+  <div class="mb-3">
+    <label for="sagicc_phone" class="form-label">Teléfono</label>
+    <input type="tel" class="form-control" id="sagicc_phone" name="phone" required>
+  </div>
+  <div class="mb-3">
+    <label for="sagicc_message" class="form-label">Mensaje</label>
+    <textarea class="form-control" id="sagicc_message" name="message" rows="3" required></textarea>
+  </div>
+  <div class="mb-3">
+    <label for="sagicc_attachment" class="form-label">Adjuntar archivo</label>
+    <input type="file" class="form-control" id="sagicc_attachment" name="attachments[]" multiple>
+  </div>
+  <div class="mb-3">
+    <label for="sagicc_captcha" class="form-label">Captcha</label>
+    <input type="text" class="form-control" id="sagicc_captcha" name="captcha" required placeholder="Ingrese el texto de la imagen">
+    <div class="mt-2">
+      <img src="https://static.sagicc.co/captcha" alt="Captcha" id="sagicc_captcha_img" style="border-radius:4px;">
+      <button type="button" class="btn btn-link p-0 ms-2" onclick="document.getElementById('sagicc_captcha_img').src='https://static.sagicc.co/captcha?'+Date.now(); return false;">Recargar</button>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary w-100" style="font-weight:500;">Enviar</button>
+</form>
+<script>
+// Sagicc form submit handler
+function submitSagiccForm(e) {
+  e.preventDefault();
+  var form = document.getElementById('sagicc-contact-form');
+  var formData = new FormData(form);
+  fetch('https://static.sagicc.co/form/eliteinmobiliaria', {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.success) {
+      alert('¡Mensaje enviado correctamente! Nos pondremos en contacto pronto.');
+      form.reset();
+      document.getElementById('sagicc_captcha_img').src = 'https://static.sagicc.co/captcha?' + Date.now();
+    } else {
+      alert('Error: ' + (data.message || 'No se pudo enviar el mensaje.')); 
+      document.getElementById('sagicc_captcha_img').src = 'https://static.sagicc.co/captcha?' + Date.now();
+    }
+  })
+  .catch(error => {
+    alert('Error al enviar el mensaje. Intente nuevamente.');
+    document.getElementById('sagicc_captcha_img').src = 'https://static.sagicc.co/captcha?' + Date.now();
+  });
+}
+document.getElementById('sagicc-contact-form').addEventListener('submit', submitSagiccForm);
+</script>
                 </div>
             </div>
         </div>
